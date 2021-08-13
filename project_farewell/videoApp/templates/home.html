@@ -33,7 +33,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script defer src="{% static 'landingPage.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'landingPage.css' %}" />
+    <link rel="stylesheet" href="{%static 'landingPage.css'%}" />
     <!--추가적인 헤더 끝-->
     <title>Farewell</title>
   </head>
@@ -42,7 +42,7 @@
 
   <body>
     <section class="movie">
-      <img class="movie__bg bg__img" src="{% static 'movieBackground.png' %}" />
+      <img class="movie__bg bg__img" src="{%static 'movieBackground.png'%}" />
       <div class="inner__content">
         <div class="movie__title">
           <div class="movie__title__main">
@@ -56,7 +56,7 @@
         <div class="swiper-container">
           <div class="swiper-wrapper">
             {%for video in videos%}
-            <a class="swiper-slide" href="{%url 'detailVideo' video.id %}">
+            <a class="swiper-slide" href="{% url 'detailVideo' video.id %}">
               <div class="movie__img">
                 <img src="{{video.image.url}}" />
 
@@ -113,7 +113,7 @@
         <div class="community__posts__wrapper">
           {%for blog in blogs%}
 
-          <a href="{%url 'detailBlog' blog.id %}" class="community__post">
+          <a href="{% url 'detailBlog' blog.id %}" class="community__post">
             <p class="post__title">{{blog.title}}</p>
             <p class="post__content">{{blog.summary}}</p>
 
